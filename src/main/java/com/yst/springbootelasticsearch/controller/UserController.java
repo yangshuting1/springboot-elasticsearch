@@ -7,21 +7,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 public class UserController {
 
     @Autowired
     private UserRepository userReposiory;
 
+
     @RequestMapping("/addUser")
     public User addUser(@RequestBody User user) {
         return userReposiory.save(user);
-    }
-
-    @RequestMapping("/findUser")
-    public Optional<User> findUser(String id) {
-        return userReposiory.findById(id);
     }
 }
